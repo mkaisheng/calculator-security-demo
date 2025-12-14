@@ -41,3 +41,19 @@ Based on the ZAP reports , medium level threats should be handled first such as 
 |10036|Server Leaks Version Information|Low|http://localhost:5000|Helps attackers find known vulnerabilities based on patches|
 |10063|Permissions Policy Header Not Set|Low|http://localhost:5000|Can help enhance user security and privacy|
 |10038|Insufficient Site Isolation Against Spectre|Low|http://localhost:5000|Mitigation header against side-channel attacks like Spectre|
+
+
+# Scanner Comparison
+
+## Only CodeQL (SAST) Found
+- Flask app running in Debug Mode
+
+## Only ZAP (DAST) Found
+- Missing Security Headers (CSP, Anti-clickjacking, X-Content-Type-Options, Permissions Policy)
+- Runtime Configuration Issues (HTTP Only Site, Server version leakage)
+- API Endpoint Vulnerabilities (The scan suggests a modern web application with API calls, e.g., /calculate)
+
+## Only Dependency-Check (SCA) Found
+- No known dependencies found
+
+
